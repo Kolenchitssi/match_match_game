@@ -1,0 +1,28 @@
+@import "./constansts/colorsScss.scss";
+
+.app {
+  display: grid;
+  grid-template-columns: 10fr 2fr;
+  grid-template-rows: 8vh 90vh 2vh;
+  grid-template-areas:
+    " header header"
+    "game_field menu"
+    "footer footer";
+  gap: 10px;
+  background-color: $dark0;
+}
+
+.header {
+  grid-area: header;
+}
+
+.menu {
+  grid-area: menu;
+}
+
+.game-field {
+  grid-area: game_field;
+}
+.footer {
+  grid-area: footer;
+}

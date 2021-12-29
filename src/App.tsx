@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.scss";
+import Footer from "./components/Footer";
+import GameField from "./components/GameField";
+import Header from "./components/Header";
+import Menu from "./components/Menu";
+import { arraySource } from "./constansts/arraySource";
+import { createCardsArray } from "./utils/createCardsArray";
+import { ICard } from "./models/ICard";
+import { isWin } from "./utils/isWin";
 
 function App() {
+  const arrayCardsStart: ICard[] = createCardsArray(arraySource);
+  const [arrayCards, setArrayCards] = useState(arrayCardsStart);
+  useEffect(() => {
+    if (isWin(arrayCards)) alert("вы победили");
+  }, [arrayCards]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header className="header" />
+      <GameField
+        className="game-field"
+        arrayCards={arrayCards}
+        setArrayCards={setArrayCards}
+      />
+      <Menu className="menu" />
+      <Footer className="footer" />
     </div>
   );
 }

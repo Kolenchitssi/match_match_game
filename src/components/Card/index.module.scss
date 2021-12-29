@@ -1,0 +1,54 @@
+@import "../../constansts/colorsScss.scss";
+
+.component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  width: 9vw;
+  height: 12vw;
+  border: 2px solid $textColor;
+  border-radius: 4px;
+  cursor: pointer;
+
+  transition: linear 0.3s;
+  &:hover {
+    border-color: $warning;
+    filter: contrast(1.5);
+  }
+
+  &.cardUp {
+    .back {
+      transform: rotateY(90deg);
+    }
+
+    .front {
+      transform: rotateY(359deg);
+      opacity: 1;
+    }
+  }
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url("../../assets/img/backSideCard.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-color: $dark1;
+}
+
+.front {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: $secondary;
+  background-color: $light2;
+  transition-delay: 0.3s;
+  transform: rotateY(270deg);
+  opacity: 1;
+}
