@@ -22,7 +22,7 @@ const Card: FC<IPropsCard> = ({
   return (
     <>
       {isOpened ? (
-        <div className={`${styles.component} `}>
+        <div className={`${styles.component} ${styles.success} `}>
           Card: {id} value={value}
           <img src={picture} alt="" />
         </div>

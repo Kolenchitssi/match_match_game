@@ -1,19 +1,24 @@
 @import "../../constansts/colorsScss.scss";
 
 .component {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   text-align: center;
   position: relative;
-  width: 9vw;
-  height: 12vw;
+  width: 100%;
+  max-width: 150px;
+  min-width: 100px;
+  height: 100%;
+  padding: 6px;
   border: 2px solid $textColor;
   border-radius: 4px;
   cursor: pointer;
+  background-color: $light2;
+  color: $success;
 
-  transition: linear 0.3s;
+  transition: all linear 0.3s;
   &:hover {
     border-color: $warning;
     filter: contrast(1.5);
@@ -51,4 +56,12 @@
   transition-delay: 0.3s;
   transform: rotateY(270deg);
   opacity: 1;
+  img {
+    max-width: 100%;
+  }
+}
+
+.success {
+  border-color: $light3;
+  border-width: 3px;
 }

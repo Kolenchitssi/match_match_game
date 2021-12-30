@@ -31,7 +31,7 @@ const GameField = (props: PropsFooter) => {
       {arrayCards.map((card, index) => {
         return (
           <Card
-            id={card.id} //! может и не нужно
+            id={card.id} // не нужно
             index={index}
             value={card.value}
             isOpened={card.isOpened}
@@ -44,30 +44,32 @@ const GameField = (props: PropsFooter) => {
 
               if (arrForCheck.length < 2) {
                 arrForCheck.push(index);
-                console.log(arrForCheck, arrayCards);
+                // console.log(arrForCheck, arrayCards);
                 newArr[index].faceUp = true;
                 setArrayCards(newArr);
-              } else if (arrForCheck.length === 2) {
-                if (
-                  newArr[arrForCheck[0]].value ===
-                    newArr[arrForCheck[1]].value &&
-                  arrForCheck[0] !== arrForCheck[1]
-                ) {
-                  newArr[arrForCheck[0]].isOpened = true;
-                  newArr[arrForCheck[1]].isOpened = true;
-                  setArrayCards(newArr);
-                  arrForCheck.length = 0;
-                } else {
-                  newArr[arrForCheck[0]].faceUp = false;
-                  newArr[arrForCheck[1]].faceUp = false;
-                  setArrayCards(newArr);
-                  arrForCheck.length = 0;
+
+                if (arrForCheck.length === 2) {
+                  if (
+                    newArr[arrForCheck[0]].value ===
+                      newArr[arrForCheck[1]].value &&
+                    arrForCheck[0] !== arrForCheck[1]
+                  ) {
+                    setTimeout(() => {
+                      newArr[arrForCheck[0]].isOpened = true;
+                      newArr[arrForCheck[1]].isOpened = true;
+                      setArrayCards([...newArr]);
+                      arrForCheck.length = 0;
+                    }, 1000);
+                  } else {
+                    setTimeout(() => {
+                      newArr[arrForCheck[0]].faceUp = false;
+                      newArr[arrForCheck[1]].faceUp = false;
+                      setArrayCards([...newArr]);
+
+                      arrForCheck.length = 0;
+                    }, 2000);
+                  }
                 }
-              } else {
-                newArr[arrForCheck[0]].faceUp = false;
-                newArr[arrForCheck[1]].faceUp = false;
-                setArrayCards(newArr);
-                arrForCheck.length = 0;
               }
             }}
           />

@@ -3,10 +3,13 @@
 .component {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(4, 1fr);
   justify-content: stretch;
+  align-items: center;
+  justify-items: center;
+  gap: 15px;
 
-  padding: 12px;
+  padding: 12px 80px;
   border-radius: 8px;
   background-color: $dark2;
   color: $textColor;
