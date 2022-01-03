@@ -38,9 +38,8 @@ const GameField = (props: PropsFooter) => {
             faceUp={card.faceUp}
             key={card.id}
             picture={arrPicture[card.value]}
-            onClick={(e: React.SyntheticEvent) => {
+            onClick={() => {
               const newArr = [...arrayCards];
-              // console.log(e.currentTarget);
 
               if (arrForCheck.length < 2) {
                 arrForCheck.push(index);
